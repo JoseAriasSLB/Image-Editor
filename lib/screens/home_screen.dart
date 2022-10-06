@@ -9,13 +9,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
+          child: Ink(
+        decoration: const ShapeDecoration(
+          color: Colors.lightBlue,
+          shape: CircleBorder(),
+        ),
         child: IconButton(
+          tooltip: "Select image",
           icon: const Icon(
-            Icons.upload_file,
+            Icons.flip_camera_ios,
           ),
           onPressed: () async {
             XFile? file = await ImagePicker().pickImage(
-              source: ImageSource.gallery,
+              source: ImageSource.camera,
             );
             if (file != null) {
               Navigator.of(context).push(
@@ -28,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             }
           },
         ),
-      ),
+      )),
     );
   }
 }
